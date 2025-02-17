@@ -1,0 +1,22 @@
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsNotEmpty, IsString, MaxLength } from 'class-validator';
+import { UserFunctionEnum } from '../enum/user-function.enum';
+
+export class UserUpdateRequestDto {
+  @IsString({ message: 'Nome deve ser uma string' })
+  @IsNotEmpty({ message: 'Nome não pode ser vazio' })
+  @MaxLength(100, { message: 'Nome deve conter no maximo 100 caracteres' })
+  @ApiProperty({
+    description: 'Name user',
+    example: 'Jhon Jhow',
+  })
+  name: string;
+
+  @IsEnum(UserFunctionEnum, { message: 'Funcão deve ser ADMIN ou CLIENT' })
+  @IsNotEmpty({ message: 'Funcão não pode ser vazio' })
+  @ApiProperty({
+    description: 'Type user',
+    example: 'ADMIN',
+  })
+  function: UserFunctionEnum;
+}

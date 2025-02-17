@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres
+    container_name: challenge_pantore
+    environment:
+      POSTGRES_DB: challenge_pantore
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pantore123
+    ports:
+      - '5432:5432'
