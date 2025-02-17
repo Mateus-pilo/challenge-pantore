@@ -6,7 +6,7 @@ import {
   SequelizeHealthIndicator,
 } from '@nestjs/terminus';
 import { AppHealthIndicator } from './app.health';
-import { Public } from 'src/modules/auth/decorators/public.decorator';
+import { Public } from '../modules/auth/decorators/public.decorator';
 
 @ApiTags('Health Check')
 @Controller(['health'])
