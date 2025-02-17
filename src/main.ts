@@ -21,7 +21,7 @@ async function bootstrap() {
   const swaggerService = app.select(swaggerModule).get(SwaggerConfigService);
   swaggerService.setupSwagger(app);
 
-  const serverPort = process.env.SERVER_PORT || 3000;
+  const serverPort = process.env.PORT || 3000;
   await app.listen(serverPort, '0.0.0.0', () => {
     Logger.log(`Server is running on port ${serverPort}`);
   });
