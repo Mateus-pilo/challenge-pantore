@@ -33,6 +33,10 @@ export class UserController {
     type: PaginationResponseDto,
     description: 'Search users',
   })
+  @ApiOperation({
+    description: 'Search users on database',
+    summary: 'Search users on database with query',
+  })
   findAll(@Query() search: PaginationRequestDto) {
     return this.userService.search(search);
   }
@@ -41,6 +45,10 @@ export class UserController {
   @ApiOkResponse({
     type: UserCreateResponseDto,
     description: 'Create successfuly',
+  })
+  @ApiOperation({
+    description: 'Search user by ID',
+    summary: 'Search user on database by id',
   })
   findById(
     @Param('id', new UUIDValidation()) id: string,
@@ -52,6 +60,10 @@ export class UserController {
   @ApiOkResponse({
     type: UserCreateResponseDto,
     description: 'Create successfuly',
+  })
+  @ApiOperation({
+    description: 'Update user on database',
+    summary: 'Update users on database',
   })
   update(
     @Param('id', new UUIDValidation()) id: string,
