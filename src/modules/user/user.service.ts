@@ -32,6 +32,7 @@ export class UserService {
     }
 
     return {
+      id: user.id,
       name: user.name,
       email: user.email,
     };
@@ -43,6 +44,7 @@ export class UserService {
     if (!user) throw new NotFoundException('User not found');
 
     return {
+      id: user.id,
       name: user.name,
       email: user.email,
       function: user.function,
@@ -56,6 +58,7 @@ export class UserService {
     });
 
     return {
+      id: user.id,
       name: user.name,
       email: user.email,
       function: user.function,
@@ -97,6 +100,7 @@ export class UserService {
   private mapperToDto(users: UserEntity[]) {
     return users.map((user) => {
       return {
+        id: user.id,
         name: user.name,
         email: user.email,
         function: user.function,
